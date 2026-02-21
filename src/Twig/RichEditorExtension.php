@@ -247,8 +247,8 @@ final class RichEditorExtension extends AbstractExtension
         }
 
         $path = $form->vars['data'];
-        if (!empty($app->getRequest()->get('rich_editor_uploaded_files'))) {
-            $uploadedFile = $app->getRequest()->get('rich_editor_uploaded_files');
+        if (!empty($app->getRequest()->request->get('rich_editor_uploaded_files'))) {
+            $uploadedFile = $app->getRequest()->request->get('rich_editor_uploaded_files');
             if (null !== ($fullName = $uploadedFile[$varName] ?? null)) {
                 if ($fullName instanceof UploadedFile) {
                     return null;

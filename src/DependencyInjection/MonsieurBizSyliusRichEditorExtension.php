@@ -28,7 +28,7 @@ final class MonsieurBizSyliusRichEditorExtension extends Extension implements Pr
                 'adapters' => [
                     'monsieurbiz_rich_editor_fixture_file' => [
                         'local' => [
-                            'directory' => '%sylius_core.public_dir%/media',
+                            'directory' => '%kernel.project_dir%/public/media',
                             'create' => true,
                         ],
                     ],
@@ -48,7 +48,7 @@ final class MonsieurBizSyliusRichEditorExtension extends Extension implements Pr
                         'filesystem' => [
                             'allow_unresolvable_data_roots' => true,
                             'data_root' => [
-                                '%sylius_core.public_dir%%env(MONSIEURBIZ_SYLIUS_RICH_EDITOR_UPLOAD_DIR)%',
+                                '%kernel.project_dir%/public%env(MONSIEURBIZ_SYLIUS_RICH_EDITOR_UPLOAD_DIR)%',
                             ],
                         ],
                     ],
