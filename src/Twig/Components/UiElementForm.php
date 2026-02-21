@@ -25,7 +25,12 @@ use Symfony\UX\LiveComponent\ComponentToolsTrait;
 use Symfony\UX\LiveComponent\ComponentWithFormTrait;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\UX\LiveComponent\LiveCollectionTrait;
+use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 
+#[AsLiveComponent(
+    name: 'SyliusAdmin:MonsieurBizUiElement:Form',
+    template: '@MonsieurBizSyliusRichEditorPlugin/admin/form_container.html.twig'
+)]
 class UiElementForm
 {
     use ComponentToolsTrait;

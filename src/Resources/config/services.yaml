@@ -62,8 +62,3 @@ services:
     # Maker
     MonsieurBiz\SyliusRichEditorPlugin\Maker\UiElementMaker:
         tags: ['maker.command']
-
-    MonsieurBiz\SyliusRichEditorPlugin\Twig\Components\UiElementForm:
-        autoconfigure: false
-        tags:
-            - { name: 'sylius.live_component.admin', key: 'SyliusAdmin:MonsieurBizUiElement:Form', template: '@MonsieurBizSyliusRichEditorPlugin/admin/form_container.html.twig' }
