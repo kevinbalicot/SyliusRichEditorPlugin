@@ -102,7 +102,7 @@ class FormController extends AbstractController
      */
     public function renderElementsAction(Request $request, SwitchAdminLocaleInterface $switchAdminLocale): Response
     {
-        if ($uiElements = $request->get('ui_elements')) {
+        if ($uiElements = $request->request->get('ui_elements')) {
             if (!\is_string($uiElements)) {
                 throw $this->createNotFoundException();
             }
@@ -114,7 +114,7 @@ class FormController extends AbstractController
 
         // if we have a locale value in the post data, we change the current
         // admin locale to make the ui elements in the correct version.
-        if (($locale = $request->get('locale')) && \is_string($locale)) {
+        if (($locale = $request->request->get('locale')) && \is_string($locale)) {
             $switchAdminLocale->switchLocale($locale);
         }
 
@@ -166,7 +166,7 @@ class FormController extends AbstractController
 
         // if we have a locale value in the post data, we change the current
         // admin locale to make the ui elements in the correct version.
-        if (($locale = $request->get('locale')) && \is_string($locale)) {
+        if (($locale = $request->request->get('locale')) && \is_string($locale)) {
             $switchAdminLocale->switchLocale($locale);
         }
 

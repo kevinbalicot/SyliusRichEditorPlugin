@@ -203,7 +203,7 @@
 
         let editors = document.querySelectorAll('[data-component="rich-editor"]');
         let uielements = {{ monsieurbiz_richeditor_list_elements() }};
-        let fallBackLocale = '{{ app.request.locale | default(app.request.defaultLocale) | default(sylius_base_locale) | escape('js') }}';
+        let fallBackLocale = '{{ app.request.locale | default(app.request.defaultLocale) | escape('js') }}';
 
         function setupRichEditor(editor, tags, locale) {
             let config = new MonsieurBizRichEditorConfig(
