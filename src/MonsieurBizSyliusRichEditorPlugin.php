@@ -13,8 +13,10 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusRichEditorPlugin;
 
+use MonsieurBiz\SyliusRichEditorPlugin\DependencyInjection\MonsieurBizSyliusRichEditorExtension;
 use MonsieurBiz\SyliusRichEditorPlugin\DependencyInjection\UiElementRegistryPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class MonsieurBizSyliusRichEditorPlugin extends Bundle
@@ -40,8 +42,12 @@ final class MonsieurBizSyliusRichEditorPlugin extends Bundle
         return class_exists('MonsieurBiz\SyliusMediaManagerPlugin\Twig\Extension\FileExtension');
     }
 
-    protected function getContainerExtensionClass(): string
+    public function getContainerExtension(): ExtensionInterface
     {
-        return $this->getNamespace().'\\DependencyInjection\\MonsieurBizSyliusRichEditorExtension';
+        if (null === $this->extension) {
+            $this->extension = new MonsieurBizSyliusRichEditorExtension();
+        }
+
+        return $this->extension;
     }
 }
