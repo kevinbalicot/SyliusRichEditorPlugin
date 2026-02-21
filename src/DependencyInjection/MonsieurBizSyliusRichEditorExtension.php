@@ -53,6 +53,15 @@ final class MonsieurBizSyliusRichEditorExtension extends Extension implements Pr
                         ],
                     ],
                 ],
+                'filter_sets' => [
+                    'monsieurbiz_rich_editor_uploaded_image' => [
+                        'filters' => [
+                            'thumbnail' => ['size' => [400, 400], 'mode' => 'inset'],
+                            'relative_resize' => ['widen' => 32],
+                        ],
+                    ],
+                    'monsieurbiz_rich_editor_image' => null,
+                ],
             ]);
         }
     }

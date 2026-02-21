@@ -2,7 +2,6 @@ imports:
     - { resource: "services.yaml" }
     - { resource: "sylius/twig_hooks.yaml" }
     - { resource: "richeditor.yaml" }
-    - { resource: 'images.yaml' }
 
 parameters:
     env(MONSIEURBIZ_SYLIUS_RICH_EDITOR_UPLOAD_DIR): /media/rich-editor
