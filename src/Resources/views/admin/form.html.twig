@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="uie-panels__inner ui segment form">
-        {% set locale = form.vars.attr['data-locale']|default(sylius.localeCode) %}
+        {% set locale = form.vars.attr['data-locale'] %}
         {% set uiElementCode = uiElement.code %}
         {% set uiElementFormClass = uiElement.formClass %}
 
