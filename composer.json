@@ -5,8 +5,7 @@
     "description": "A Rich Editor plugin for Sylius.",
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "sylius/sylius": "~2.0",
+        "php": "^8.4",
         "twig/markdown-extra": "^3.13",
         "twig/extra-bundle": "^3.13",
         "league/commonmark": "^2.6"

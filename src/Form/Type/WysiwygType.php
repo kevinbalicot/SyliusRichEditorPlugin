@@ -16,7 +16,7 @@ namespace MonsieurBiz\SyliusRichEditorPlugin\Form\Type;
 use MonsieurBiz\SyliusRichEditorPlugin\WysiwygEditor\EditorCollectionInterface;
 use MonsieurBiz\SyliusRichEditorPlugin\WysiwygEditor\EditorInterface;
 use MonsieurBiz\SyliusRichEditorPlugin\WysiwygEditor\SunEditor;
-use Sylius\Component\Locale\Context\LocaleContextInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -37,7 +37,9 @@ class WysiwygType extends TextareaType
     public function __construct(
         private EncoderInterface $encoder,
         private EditorCollectionInterface $editorCollection,
-        private LocaleContextInterface $localeContext,
+
+        #[Autowire(value: '%default_locale%')]
+        private string $defaultLocale = self::DEFAULT_LOCALE,
     ) {
     }
 
@@ -63,7 +65,7 @@ class WysiwygType extends TextareaType
     {
         parent::configureOptions($resolver);
 
-        $locale = explode('_', $this->localeContext->getLocaleCode())[0] ?? self::DEFAULT_LOCALE;
+        $locale = self::DEFAULT_LOCALE;
         $resolver->setDefaults([
             'editor_type' => self::DEFAULT_EDITOR_TYPE,
             'editor_height' => self::DEFAULT_EDITOR_HEIGHT,

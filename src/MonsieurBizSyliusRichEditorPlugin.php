@@ -15,15 +15,12 @@ namespace MonsieurBiz\SyliusRichEditorPlugin;
 
 use LogicException;
 use MonsieurBiz\SyliusRichEditorPlugin\DependencyInjection\UiElementRegistryPass;
-use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class MonsieurBizSyliusRichEditorPlugin extends Bundle
 {
-    use SyliusPluginTrait;
-
     /**
      * Returns the plugin's container extension.
      *
