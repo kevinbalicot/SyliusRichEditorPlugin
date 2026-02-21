@@ -17,7 +17,7 @@ use MonsieurBiz\SyliusRichEditorPlugin\DependencyInjection\UiElementRegistryPass
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class MonsieurBizSyliusRichEditorBundle extends Bundle
+final class MonsieurBizSyliusRichEditorPlugin extends Bundle
 {
     public function build(ContainerBuilder $container): void
     {
@@ -38,5 +38,10 @@ final class MonsieurBizSyliusRichEditorBundle extends Bundle
     public static function fileExtensionMediaManagerExists(): bool
     {
         return class_exists('MonsieurBiz\SyliusMediaManagerPlugin\Twig\Extension\FileExtension');
+    }
+
+    protected function getContainerExtensionClass(): string
+    {
+        return $this->getNamespace().'\\DependencyInjection\\MonsieurBizSyliusRichEditorExtension';
     }
 }

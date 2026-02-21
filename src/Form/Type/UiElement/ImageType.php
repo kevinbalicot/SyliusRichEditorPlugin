@@ -19,7 +19,7 @@ use MonsieurBiz\SyliusRichEditorPlugin\Form\Type\AlignmentType;
 use MonsieurBiz\SyliusRichEditorPlugin\Form\Type\FileType;
 use MonsieurBiz\SyliusRichEditorPlugin\Form\Type\LinkType;
 use MonsieurBiz\SyliusRichEditorPlugin\Form\Type\LinkTypeType;
-use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorBundle;
+use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorPlugin;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType as FormTextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -88,7 +88,7 @@ class ImageType extends AbstractType
     private function getImageType(): string
     {
         // @phpstan-ignore-next-line
-        return MonsieurBizSyliusRichEditorBundle::imageMediaManagerExists() ? MediaManagerImageType::class : FileType::class;
+        return MonsieurBizSyliusRichEditorPlugin::imageMediaManagerExists() ? MediaManagerImageType::class : FileType::class;
     }
 
     public function addEvents(FormBuilderInterface $builder, array $options): void

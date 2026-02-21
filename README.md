@@ -47,7 +47,7 @@ Change your `config/bundles.php` file to add the line for the plugin :
 return [
     //..
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
-    MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorBundle::class => ['all' => true],
+    MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorPlugin::class => ['all' => true],
 ];
 ```
 
