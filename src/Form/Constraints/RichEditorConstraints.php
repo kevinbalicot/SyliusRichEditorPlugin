@@ -33,7 +33,7 @@ final class RichEditorConstraints
 
         if (empty($defaultConstraints)) {
             $defaultConstraints = [
-                new Assert\Image([]),
+                new Assert\Image(),
             ];
         }
 
@@ -55,9 +55,9 @@ final class RichEditorConstraints
 
         if (empty($defaultConstraints)) {
             $defaultConstraints = [
-                new Assert\File([
-                    'mimeTypes' => ['video/mpeg', 'video/mp4', 'video/quicktime', 'video/x-ms-wmv', 'video/x-msvideo', 'video/x-flv'],
-                ]),
+                new Assert\File(
+                    mimeTypes: ['video/mpeg', 'video/mp4', 'video/quicktime', 'video/x-ms-wmv', 'video/x-msvideo', 'video/x-flv'],
+                ),
             ];
         }
 
