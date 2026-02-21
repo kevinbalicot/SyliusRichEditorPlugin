@@ -40,8 +40,8 @@ class ButtonLinkType extends AbstractType
             $constraintsLink = [
                 new Assert\AtLeastOneOf(
                     constraints: [
-                        new Assert\Url(['protocols' => ['http', 'https'], 'relativeProtocol' => true]),
-                        new Assert\Regex(['pattern' => '`^(#|/|tel:|mailto:)`']),
+                        new Assert\Url(protocols: ['http', 'https'], relativeProtocol: true),
+                        new Assert\Regex(pattern: '`^(#|/|tel:|mailto:)`'),
                     ],
                     message: 'monsieurbiz_richeditor_plugin.not_valid_url',
                     includeInternalMessages: false
@@ -54,8 +54,8 @@ class ButtonLinkType extends AbstractType
             $constraintsLink = [
                 new Assert\AtLeastOneOf(
                     constraints: [
-                        new Assert\Url(['protocols' => ['http', 'https'], 'relativeProtocol' => true]),
-                        new Assert\Regex(['pattern' => '`^(#|/|tel:|mailto:)`']),
+                        new Assert\Url(protocols: ['http', 'https'], relativeProtocol: true),
+                        new Assert\Regex(pattern: '`^(#|/|tel:|mailto:)`'),
                     ],
                     message: 'monsieurbiz_richeditor_plugin.not_valid_url',
                     includeInternalMessages: false
