@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace MonsieurBiz\SyliusRichEditorPlugin\Form\Constraints;
 
-use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorPlugin;
+use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorBundle;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class RichEditorConstraints
@@ -27,7 +27,7 @@ final class RichEditorConstraints
      */
     public static function getImageConstraints(array $data, string $fieldName, bool $required = true, array $defaultConstraints = []): array
     {
-        if (MonsieurBizSyliusRichEditorPlugin::imageMediaManagerExists()) {
+        if (MonsieurBizSyliusRichEditorBundle::imageMediaManagerExists()) {
             return self::getMediaManagerConstraints($required, $defaultConstraints);
         }
 
@@ -49,7 +49,7 @@ final class RichEditorConstraints
      */
     public static function getVideoConstraints(array $data, string $fieldName, bool $required = true, array $defaultConstraints = []): array
     {
-        if (MonsieurBizSyliusRichEditorPlugin::videoMediaManagerExists()) {
+        if (MonsieurBizSyliusRichEditorBundle::videoMediaManagerExists()) {
             return self::getMediaManagerConstraints($required, $defaultConstraints);
         }
 

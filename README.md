@@ -39,7 +39,7 @@ composer require monsieurbiz/sylius-rich-editor-plugin
 <summary>For the installation without flex, follow these additional steps</summary>
 <p>
 
-Change your `config/bundles.php` file to add the line for the plugin : 
+Change your `config/bundles.php` file to add the line for the plugin :
 
 ```php
 <?php
@@ -47,7 +47,7 @@ Change your `config/bundles.php` file to add the line for the plugin :
 return [
     //..
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
-    MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorPlugin::class => ['all' => true],
+    MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorBundle::class => ['all' => true],
 ];
 ```
 

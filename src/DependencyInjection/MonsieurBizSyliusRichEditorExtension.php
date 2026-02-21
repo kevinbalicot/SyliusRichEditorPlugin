@@ -16,16 +16,53 @@ namespace MonsieurBiz\SyliusRichEditorPlugin\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class MonsieurBizSyliusRichEditorExtension extends Extension
+final class MonsieurBizSyliusRichEditorExtension extends Extension implements PrependExtensionInterface
 {
+    public function prepend(ContainerBuilder $container): void
+    {
+        if ($container->hasExtension('knp_gaufrette')) {
+            $container->prependExtensionConfig('knp_gaufrette', [
+                'adapters' => [
+                    'monsieurbiz_rich_editor_fixture_file' => [
+                        'local' => [
+                            'directory' => '%sylius_core.public_dir%/media',
+                            'create' => true,
+                        ],
+                    ],
+                ],
+                'filesystems' => [
+                    'monsieurbiz_rich_editor_fixture_file' => [
+                        'adapter' => 'monsieurbiz_rich_editor_fixture_file',
+                    ],
+                ],
+            ]);
+        }
+
+        if ($container->hasExtension('liip_imagine')) {
+            $container->prependExtensionConfig('liip_imagine', [
+                'loaders' => [
+                    'sylius_image' => [
+                        'filesystem' => [
+                            'allow_unresolvable_data_roots' => true,
+                            'data_root' => [
+                                '%sylius_core.public_dir%%env(MONSIEURBIZ_SYLIUS_RICH_EDITOR_UPLOAD_DIR)%',
+                            ],
+                        ],
+                    ],
+                ],
+            ]);
+        }
+    }
+
     /**
      * @inheritdoc
      */
     public function load(array $config, ContainerBuilder $container): void
     {
-        $configuration = $this->getConfiguration([], $container);
+        $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $config);
         $container->setParameter('monsieurbiz.richeditor.config.ui_elements', $config['ui_elements']);
         $container->setParameter('monsieurbiz.richeditor.config.upload_directory', $config['upload_directory']);

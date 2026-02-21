@@ -18,7 +18,7 @@ use MonsieurBiz\SyliusMediaManagerPlugin\Form\Type\VideoType as MediaManagerVide
 use MonsieurBiz\SyliusRichEditorPlugin\Form\Constraints\RichEditorConstraints;
 use MonsieurBiz\SyliusRichEditorPlugin\Form\Type\AlignmentType;
 use MonsieurBiz\SyliusRichEditorPlugin\Form\Type\FileType;
-use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorPlugin;
+use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorBundle;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -78,13 +78,13 @@ class VideoType extends AbstractType
     private function getImageType(): string
     {
         // @phpstan-ignore-next-line
-        return MonsieurBizSyliusRichEditorPlugin::imageMediaManagerExists() ? MediaManagerImageType::class : FileType::class;
+        return MonsieurBizSyliusRichEditorBundle::imageMediaManagerExists() ? MediaManagerImageType::class : FileType::class;
     }
 
     private function getVideoType(): string
     {
         // @phpstan-ignore-next-line
-        return MonsieurBizSyliusRichEditorPlugin::videoMediaManagerExists() ? MediaManagerVideoType::class : FileType::class;
+        return MonsieurBizSyliusRichEditorBundle::videoMediaManagerExists() ? MediaManagerVideoType::class : FileType::class;
     }
 
     public function addEvents(FormBuilderInterface $builder, array $options): void

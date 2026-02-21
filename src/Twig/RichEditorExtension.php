@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace MonsieurBiz\SyliusRichEditorPlugin\Twig;
 
 use MonsieurBiz\SyliusRichEditorPlugin\Exception\UiElementNotFoundException;
-use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorPlugin;
+use MonsieurBiz\SyliusRichEditorPlugin\MonsieurBizSyliusRichEditorBundle;
 use MonsieurBiz\SyliusRichEditorPlugin\UiElement\RegistryInterface;
 use MonsieurBiz\SyliusRichEditorPlugin\Validator\Constraints\YoutubeUrlValidator;
 use Symfony\Bridge\Twig\AppVariable;
@@ -284,7 +284,7 @@ final class RichEditorExtension extends AbstractExtension
 
     public function fileExtensionMediaManagerExists(): bool
     {
-        return MonsieurBizSyliusRichEditorPlugin::fileExtensionMediaManagerExists();
+        return MonsieurBizSyliusRichEditorBundle::fileExtensionMediaManagerExists();
     }
 
     public function fileExists(string $path): bool
