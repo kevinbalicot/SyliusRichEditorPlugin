@@ -76,7 +76,7 @@ final class RichEditorConstraints
         }
 
         // No file set yet, we require file
-        $constraints[] = new Assert\NotBlank([]);
+        $constraints[] = new Assert\NotBlank();
 
         return $constraints;
     }
@@ -88,7 +88,7 @@ final class RichEditorConstraints
         }
 
         // No file set yet, we require file
-        $constraints[] = new Assert\NotBlank([]);
+        $constraints[] = new Assert\NotBlank();
 
         return $constraints;
     }

@@ -32,10 +32,10 @@ class ButtonLinkType extends AbstractType
         $required = $options['required'] ?? false;
         if ($required) {
             $constraintsLabel = [
-                new Assert\NotBlank([]),
+                new Assert\NotBlank(),
             ];
             $constraintsLinkType = [
-                new Assert\NotBlank([]),
+                new Assert\NotBlank(),
             ];
             $constraintsLink = [
                 new Assert\AtLeastOneOf(
@@ -46,7 +46,7 @@ class ButtonLinkType extends AbstractType
                     message: 'monsieurbiz_richeditor_plugin.not_valid_url',
                     includeInternalMessages: false
                 ),
-                new Assert\NotBlank([]),
+                new Assert\NotBlank(),
             ];
         } else {
             $constraintsLabel = [];
