@@ -311,7 +311,7 @@ final class RichEditorExtension extends AbstractExtension
 
         // Check Sylius section to know if we are in the admin
         /** @var ?array $sylius */
-        $sylius = $request->get('_sylius');
+        $sylius = $request->attributes->get('_sylius');
         if (isset($sylius['section'])) {
             return self::SYLIUS_ADMIN_SECTION === $sylius['section'];
         }
