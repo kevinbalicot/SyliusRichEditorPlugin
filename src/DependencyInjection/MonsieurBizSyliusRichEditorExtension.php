@@ -44,7 +44,7 @@ final class MonsieurBizSyliusRichEditorExtension extends Extension implements Pr
         if ($container->hasExtension('liip_imagine')) {
             $container->prependExtensionConfig('liip_imagine', [
                 'loaders' => [
-                    'sylius_image' => [
+                    'default' => [
                         'filesystem' => [
                             'allow_unresolvable_data_roots' => true,
                             'data_root' => [
